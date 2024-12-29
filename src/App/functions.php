@@ -9,3 +9,10 @@ function dd(mixed $value)
     var_dump($value);
     echo "</pre>";
 }
+
+
+function e(mixed $value): string
+{
+
+    return htmlspecialchars((string)$value);
+}

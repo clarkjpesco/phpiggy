@@ -23,7 +23,10 @@ class AboutController
 
         echo $this->view->render(
             'about.php',
-            ['title' => 'About page']
+            [
+                'title' => 'About',
+                'dangerousData' => '<script>123</script>'
+            ]
         );
     }
 }
