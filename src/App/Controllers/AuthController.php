@@ -7,17 +7,22 @@ namespace App\Controllers;
 use Framework\TemplateEngine;
 use App\Config\Paths;
 
-class HomeController
+class AuthController
 {
 
 
 
     public function __construct(private TemplateEngine $view) {}
 
-    public function home()
+    public function registerView()
     {
         echo $this->view->render(
-            'index.php'
+            'register.php'
         );
+    }
+
+    public function register()
+    {
+        dd($_POST);
     }
 }
