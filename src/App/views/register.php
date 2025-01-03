@@ -7,6 +7,7 @@
         <label class="block">
             <span class="text-gray-700">Email address</span>
             <input
+                value="<?php echo e($oldFormData['email'] ?? ''); ?>"
                 name="email"
                 type="email"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -21,6 +22,7 @@
         <label class="block">
             <span class="text-gray-700">Age</span>
             <input
+                value="<?php echo e($oldFormData['age'] ?? ''); ?>"
                 name="age"
                 type="number"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -39,8 +41,8 @@
                 name="country"
                 class="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 <option value="USA">USA</option>
-                <option value="Canada">Canada</option>
-                <option value="Mexico">Mexico</option>
+                <option value="Canada" <?php echo $oldFormData['country'] === 'Canada' ? 'selected' : ''; ?>>Canada</option>
+                <option value="Mexico" <?php echo $oldFormData['country'] === 'Mexico' ? 'selected' : ''; ?>>Mexico</option>
                 <option value="Invalid">Invalid Country</option>
             </select>
             <?php if (array_key_exists('country', $errors)): ?>
@@ -53,6 +55,7 @@
         <label class="block">
             <span class="text-gray-700">Social Media URL</span>
             <input
+                value="<?php echo e($oldFormData['socialMediaURL'] ?? ''); ?>"
                 name="socialMediaURL"
                 type="text"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -68,6 +71,7 @@
         <label class="block">
             <span class="text-gray-700">Password</span>
             <input
+
                 name="password"
                 type="password"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -82,6 +86,7 @@
         <label class="block">
             <span class="text-gray-700">Confirm Password</span>
             <input
+
                 name="confirmPassword"
                 type="password"
                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -98,6 +103,7 @@
                 <div>
                     <label class="inline-flex items-center">
                         <input
+                            <?php echo $oldFormData['tos'] ?? false ? 'checked' : ''; ?>
                             name="tos"
                             class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-offset-0 focus:ring-indigo-200 focus:ring-opacity-50"
                             type="checkbox" />
@@ -119,6 +125,7 @@
             Submit
         </button>
     </form>
+
 </section>
 
 <?php include $this->resolve("partials/_footer.php"); ?>
